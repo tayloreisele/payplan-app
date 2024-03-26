@@ -28,7 +28,7 @@ export default function App() {
         component={WelcomeScreen} 
         options={{ headerShown: false }}
         />
-        <Stack.Screen name="Overview" component={Overview} />
+        <Stack.Screen name="Overview" component={Overview} options={{ headerShown: false }} />
         <Stack.Screen name='Login' component={LoginScreen}/>
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ title: "Sign Up"}}/>
       </Stack.Navigator>

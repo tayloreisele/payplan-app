@@ -5,11 +5,34 @@ const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Implement your login logic here
-    console.log(username, password);
-    // After login, navigate to another screen if needed
-    // navigation.navigate('YourNextScreen');
+    try {
+      const response = await fetch('http://localhost:8080/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
+
+      const json = await response.json();
+
+      if (response.ok) {
+        // Login was successful
+        console.log('Login successful', json);
+        // Navigate to Dashboard
+        navigation.navigate('Overview');
+      } else {
+        // Handle login failure
+        console.error('Login failed', json.message);
+      }
+    } catch (error) {
+      console.log('Login error', error);
+    }
   };
 
   return (

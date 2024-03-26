@@ -7,11 +7,11 @@ const WelcomeScreen = ({ navigation }) => {
       <Text style={styles.title}>Welcome to PayPlan</Text>
       <Button
         title="Log In"
-        onPress={() => navigation.navigate('Login')} // Assuming 'Login' is the name of your login screen
+        onPress={() => navigation.navigate('Login')}
       />
       <Button
         title="Sign Up"
-        onPress={() => navigation.navigate('SignUp')} // Assuming 'SignUp' is the name of your sign-up screen
+        onPress={() => navigation.navigate('SignUp')}
       />
     </View>
   );
